@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Personal</title>
+    <style>
+        body {
+            background-color: #2e3440;
+            color: #d8dee9;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #4c566a;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #81a1c1;
+            font-size: 2.5rem;
+        }
+
+        .menu-bar {
+            background-color: #3b4252;
+            overflow: hidden;
+        }
+
+        .menu-bar a {
+            float: left;
+            display: block;
+            color: #d8dee9;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .menu-bar a:hover {
+            background-color: #4c566a;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #8fbcbb;
+            border-bottom: 2px solid #88c0d0;
+            padding-bottom: 10px;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #d8dee9;
+        }
+
+        a {
+            color: #88c0d0;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #4c566a;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .sopa-letras {
+            display: grid;
+            grid-template-columns: repeat(10, 30px);
+            gap: 5px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .sopa-letras div {
+            background-color: #3b4252;
+            color: #d8dee9;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .found {
+            background-color: #88c0d0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Bienvenido a Mi Página Personal</h1>
+</header>
+
+<!-- Barra de Menús -->
+<div class="menu-bar">
+    <a href="#sri">SRI Descarga de PDFs</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#sopa-de-letras">Sopa de Letras</a>
+</div>
+
+<div class="container">
+    <section id="sri">
+        <h2>SRI Descarga de PDFs</h2>
+        <p>Aquí podrás acceder a herramientas y recursos para descargar masivamente PDFs del SRI.</p>
+        <p><a href="#">Descargar herramienta</a></p>
+    </section>
+
+    <section id="proyectos">
+        <h2>Proyectos</h2>
+        <p>En esta sección, podrás explorar mis proyectos recientes y en curso.</p>
+        <p><a href="#">Ver mis proyectos</a></p>
+    </section>
+
+    <section id="sopa-de-letras">
+        <h2>Sopa de Letras</h2>
+        <p>Encuentra las palabras ocultas: SRI, PDF, PROYECTO, CODIGO</p>
+        <div class="sopa-letras" id="sopaLetras"></div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 Mi Página Personal</p>
+</footer>
+
+<script>
+    const sopaLetras = [
+        ['C', 'O', 'D', 'I', 'G', 'O', 'A', 'S', 'P', 'D'],
+        ['Z', 'S', 'R', 'I', 'Q', 'W', 'E', 'R', 'T', 'Z'],
+        ['X', 'D', 'D', 'F', 'V', 'T', 'P', 'R', 'O', 'J'],
+        ['P', 'D', 'F', 'E', 'R', 'A', 'S', 'D', 'F', 'G'],
+        ['F', 'C', 'P', 'S', 'R', 'R', 'O', 'I', 'O', 'B'],
+        ['O', 'X', 'I', 'I', 'E', 'Q', 'W', 'J', 'P', 'L'],
+        ['O', 'O', 'N', 'T', 'C', 'E', 'V', 'R', 'A', 'P'],
+        ['P', 'I', 'O', 'D', 'L', 'G', 'C', 'D', 'F', 'D'],
+        ['E', 'T', 'U', 'R', 'R', 'Q', 'S', 'R', 'I', 'S'],
+        ['Q', 'P', 'Z', 'O', 'L', 'D', 'F', 'C', 'F', 'G']
+    ];
+
+    const sopaContainer = document.getElementById('sopaLetras');
+
+    function createSopaLetras() {
+        for (let row = 0; row < sopaLetras.length; row++) {
+            for (let col = 0; col < sopaLetras[row].length; col++) {
+                const letter = document.createElement('div');
+                letter.textContent = sopaLetras[row][col];
+                letter.dataset.row = row;
+                letter.dataset.col = col;
+                sopaContainer.appendChild(letter);
+            }
+        }
+    }
+
+    createSopaLetras();
+</script>
+
+</body>
+</html>
